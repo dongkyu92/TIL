@@ -22,7 +22,6 @@ def itemName(l: int, m: int) -> str:
         result = driver.find_element_by_css_selector('#ct > section.sc.cs_convenience_store._cs_convenience_store > div > div.item_list > div._pm_root > div > div:nth-child(' + str(l) + ') > div > ul > li:nth-child(' + str(m) + ') > div > a._info_area > div > strong > span.name_text._text').text
         print(result)
     except:
-        print(result)
         result = None
     finally:
         return result
@@ -31,7 +30,7 @@ def itemPrice(l: int, m: int) -> str:
     return driver.find_element_by_css_selector('#ct > section.sc.cs_convenience_store._cs_convenience_store > div > div.item_list > div._pm_root > div > div:nth-child(' + str(l) + ') > div > ul > li:nth-child(' + str(m) + ') > div > a._info_area > div > p').text
 
 def itemImg(l: int, m: int) -> str:
-    return driver.find_elements_by_css_selector('#ct > section.sc.cs_convenience_store._cs_convenience_store > div > div.item_list > div._pm_root > div > div:nth-child(' + str(l) + ') > div > ul > li:nth-child(' + str(m) + ') > div > a.thumb > img').__getattribute__
+    return driver.find_element_by_css_selector('#ct > section.sc.cs_convenience_store._cs_convenience_store > div > div.item_list > div._pm_root > div > div:nth-child(' + str(l) + ') > div > ul > li:nth-child(' + str(m) + ') > div > a.thumb > img').get_attribute('src')
 
 
 
@@ -58,8 +57,10 @@ nextBtn = driver.find_element_by_css_selector('#ct > section.sc.cs_convenience_s
 # Crawling 시작
 for i in range(2,7):
     driver.find_element_by_css_selector(Category(i)).click() # 음료, 과자, 생활용품
+    print('음료, 과자, 생활용품 등 카테고리 영역', i)
     time.sleep(1)
     for j in range(1,6):
+        print('1+1 등 두번째 카테고리 영역', j)
         driver.find_element_by_css_selector(Category2(j)).click() # 1+1, 2+1, 3+1
         time.sleep(1)
 
@@ -83,31 +84,38 @@ for i in range(2,7):
                     print('k 값은 몇인가', k, 'm 의 값은?', m, 'l의 값은?', l)
                     temp = itemName(l, m)
                     if temp != None:
+                        print('temp 값 들어옴.')
                         item_Name.append(temp)
                         item_Price.append(itemPrice(l, m))
                         item_Img.append(itemImg(l, m))
                         item_StoreInfo.append('CU')
                         item_PromotionInfo.append(driver.find_element_by_css_selector(Category2(j)).text)
                         item_Category.append(driver.find_element_by_css_selector(Category(i)).text)
+                        print('###############출력좀여##############')
+                        print(item_Name)
+                        print(item_Price)
+                        print(item_Img)
+                        print(item_StoreInfo)
+                        print(item_PromotionInfo)
+                        print(item_Category)
+                        print('###############출력좀여끝##############')
                     else:
                         print('temp가 None입니당.')
-                        continue
-                if k == PageCount + 1:
-                    print('k의 값은?' ,  k)
+                        break
+                if k == PageCount:
+                    print('if k의 값은?' ,  k)
                     time.sleep(1)
-                    continue
+                    break
                 else:
                     time.sleep(1)
-                    print('else 들어옴')
+                    print('else k의 값은?' ,  k)
                     #print(driver.find_element_by_css_selector('#ct > section.sc.cs_convenience_store._cs_convenience_store > div > div.page_area._page_root > div > a.cmm_pg_next._next.on'))
                     driver.find_element_by_css_selector('#ct > section.sc.cs_convenience_store._cs_convenience_store > div > div.page_area._page_root > div > a.cmm_pg_next._next.on').click()
                     time.sleep(2)
                 print('페이지 넘어감..')
         time.sleep(1)
 
-print(item_Name)
-print(item_Category)
-print(item_Img)
+
 
     
 
