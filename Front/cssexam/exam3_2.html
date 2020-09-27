@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 학습</title>
+<style>
+	div{
+		background-color : lime;
+		margin : 5px;
+		width : 400px;
+		height : 200px;
+		font-size : 1.5em;
+		padding : 5px;
+	}
+	/* 블럭은 마진주면 상하좌우 다 줄 수 있음.*/
+	img{
+		border : 1px dotted red;
+		border-radius : 99px;
+		background-color : purple;
+		box-shadow : 2px 2px 3px green;
+	}
+	.two{
+		text-align : center;
+		/* margin-left : auto;
+		margin-right : auto; */
+		margin : 10px auto; 
+		/* 블락스타일 좌우를 오토로..*/
+		/* 인라인 스타일은 가운데로(오토) 몰 수 있는 방법이 없기 때문에
+		블락에 담아서 사용함...*/
+	}
+	h1{
+		text-shadow : 0px -2px 5px red, 0 -4px 5px green;
+		/*좌우 위아래 굵기 색상*/
+	}
+	h1:hover{
+		transform : rotate(-3deg);
+		/*얼만큼 움직이냐*/
+		transition : transform 2s;
+		/*transform을 2초동안 진행해라*/
+	}
+
+	/* 스판은 좌우만 줄 수 있음.*/
+	/* 인라인 스타일태그는 상하는 의미 없다는 뜻. */
+</style>
+</head>
+<body>
+<h1>블럭 스타일 태그와 인라인 스타일 태그</h1>
+<hr>
+<div>가나다라마바사아</div>
+<div class = "two">0123456789</div>
+<div>abcdefghij</div>
+<hr>
+<div class="two"><!-- 컨테이너 태그 역할 -->
+<img src="../images/totoro.png" width="100" class="t2" > <!-- totoro.png에 대한 상대 URL1 -->
+<img src="/edu/images/totoro.png" width="100" class="t2"> <!--totoro.png에 대한 상대 URL2 -->
+<img src="http://localhost:8000/edu/images/totoro.png" width="100"> <!--totoro.png에 대한 절대 URL -->
+</div>
+
+</body>
+</html>

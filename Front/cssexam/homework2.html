@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	margin: 0;
+}
+header {
+	width: 100%;
+	height: 200px;
+	text-align: center;
+	background-image: linear-gradient(45deg, yellow, pink);
+	padding : 5px;
+
+}
+.astyle{
+margin-right: 10px;
+text-decoration:none;
+}
+.astyle:hover{
+font-weight :bold;
+}
+nav {
+}
+
+img:hover, figcaption:hover{
+		opacity: 0.5;
+}
+
+section {
+	margin: 20px;
+}
+
+article {
+	width: 70%;
+	box-align: center;
+	border: 1px solid magenta;
+	border-radius: 15px;
+	margin: 15px auto;
+}
+aside{
+width: 100%;
+text-align: center;
+
+}
+video{
+width: 50%;
+}
+
+footer {
+width :100%;
+background-color : grey;
+text-align : center;
+color : white;	
+padding : 30px;
+}
+
+h2, table, figure, textarea {
+	margin: 10px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th {
+	background-color: lime;
+}
+
+figure{
+text-align:center;
+}
+#h2jarang{
+color : blue;
+}
+
+li {
+list-style-type : upper-roman;
+margin-bottom : 2px;
+}
+h1{
+
+color:#000;
+ text-shadow:
+ 0 0 4px #ccc, 
+ 0 -5px 4px #ff3,
+2px -10px 6px #fd3,
+-2px -15px 11px #f80,
+2px -19px 18px #f20;
+text-shadow: 2px 2px 5px pink;
+padding:50px;
+}
+</style>
+</head>
+<body>
+	<header>
+		<h1 >HTML5 학습</h1>
+	
+	<nav>
+		<a  class="astyle" href="https://www.w3.org/">W3C</a> 
+		<a class="astyle" href="https://www.w3schools.com/">W3SCHOOLS</a>
+		<a class="astyle" href="http://www.jQurry.com">JQurry</a>
+	</nav>
+</header>
+	<section>
+		<article>
+			<h2 style="color: pink">나의 소개</h2>
+			<ul>
+				<li>이름 : 김 동규</li>
+				<li>별명 : 동 동규</li>
+				<li>관심기술 : css</li>
+				<li>취미 : 낮잠</li>
+			</ul>
+		</article>
+		<article>
+			<h2 style="color: green">올해 재미있게 읽은 책</h2>
+			<table border="1">
+				<tr>
+					<th>제목</th>
+					<th>장르</th>
+				</tr>
+				<tr>
+					<td>JAVA의 정석</td>
+					<td>교육</td>
+				</tr>
+				<tr>
+					<td>초격차</td>
+					<td>자기계발</td>
+				</tr>
+				<tr>
+					<td>인간관계론</td>
+					<td>자기계발</td>
+				</tr>
+			</table>
+		</article>
+		<article>
+			<h2 id = "h2jarang">자랑하고싶은 <span style="color:purple">우리동네</span>의 아름다운 곳</h2>
+			<br>
+			<textarea style="width: 85%; height: 120px">
+총면적 103만 4000㎡, 호수면적 30만㎡로, 동양 최대의 인공 호수가 조성되어 있다.
+ 물과 나무 등 자연적 요소를 도입하여 도시인들이 접하기 힘든 자연생태계를 재현한 환경공원으로, 
+ 1996년 5월 4일 개장하였다. 고양시의 새로운 명소가 되어 고양시민을 비롯한 인근 수도권 시민들의 새로운 휴식공간으로 각광받고 있으며, 
+ 호수와 어우러진 주변 경관과 호수를 이용한 다양한 레크리에이션 장소로도 이용된다.
+</textarea>
+
+			<figure>
+				아주 아름답다..!
+				<br>
+				<img class="imgandtext" alt="호수공원 사진" src="http://70.12.115.176:8000/edu/images/호수공원.jpg"
+					width="75%" height="30%">
+
+				<figcaption class="imgandtext">경기도 고양시에 있는 호수공원</figcaption>
+			</figure>
+
+		</article>
+	</section>
+	<br>
+	<br>
+	<aside>
+
+		<video src="http://70.12.115.176:8000/edu/htmlexam/불시착.mp4" controls>
+		</video>
+	</aside>
+	<br>
+	<footer>
+		<em>이 문서는 김 동규에 의해 HTML5 와 CSS3 기술을 사용하여 2020년 1월 3일에
+			작성하였습니다.(ver 1.0) </em>
+	</footer>
+</body>
+</html>

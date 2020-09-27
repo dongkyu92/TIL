@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 학습</title>
+<style>
+/* 태그 선택자 */
+a{
+	text-decoration : none;
+}
+
+/* 아이디 선택자 */
+#t1:hover{
+}
+
+/* 클래스 선택자 */
+.t2:hover{
+opacity : 0.0; /* 0.0 완전투명 ~ 1.0 완전불투명 */
+}
+
+/* 태그 선택자 */
+a:hover { 
+	font-wight : bold;
+	color : red;
+}
+
+/* 그룹 선택자 */
+h1, a{
+	border : 1px solid blue;
+}
+
+/*--------------------------------------*/
+/*
+블럭스타일태그 
+인라인스타일태그 
+*/
+div {
+	color : #0099ff;
+	일부분만 css를 다르게 적용하고 싶다면?
+	태그로 묶어라.
+}
+
+</style>
+
+</head>
+<body>
+<h1>CSS 선택자 <div>학습</div></h1>
+<hr>
+<a href="http://www.w3schools.com/" >W3Schools</a><br>
+<a href="http://www.html5test.com/" id="t1">HTML5 테스트</a><br>
+<a href="http://www.caiuse.com/" >HTML과 CSS의 지원여부 체크</a>ㅋㅋㅋ<br>
+<img src="../images/totoro.png" width="200" class="t2" > <!-- totoro.png에 대한 상대 URL1 -->
+<img src="/edu/images/totoro.png" width="200" class="t2"> <!--totoro.png에 대한 상대 URL2 -->
+<img src="http://localhost:8000/edu/images/totoro.png" width="200"> <!--totoro.png에 대한 절대 URL -->
+
+</body>
+</html>

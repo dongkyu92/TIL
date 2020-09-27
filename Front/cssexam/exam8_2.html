@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 학습</title>
+<style>
+	header {
+		width : 100%;
+		height : 100px;
+		background-color : lime;
+	}
+	
+	
+	
+	nav {
+		width : 30%;
+		height : 500px;
+		float : left;
+		background-color : pink;
+	}
+	section {
+		width : 70%;
+		height : 500px;
+		float : right;
+		background-color : skyblue;
+	}
+	
+	/* float 속성은 떠다님..
+	그래서 반드시 float 속성 밑에 오는 애들은
+	clear : both 속성을 반드시 줘야함.
+	  */
+	
+	article {
+		width : 80%;
+		height : 200px;
+		background-color : magenta;
+		margin-left : auto;
+		margin-right : auto;
+	}
+	/* article 섹션은 section 태그에 담겨져 있기 때문에
+	section 을 기준으로 ~몇프로
+	섹션 태그내에서 아티클 태그를 출력하는데 있어서 가운데로 출력하겠따.
+	 */
+	footer {
+		width : 100%;
+		height : 50px;		
+		clear : both;
+		background-color : lightgray;
+	}
+
+</style>
+</head>
+<body>
+	<header>
+		<h1>레이아웃 나누기</h1>
+		<em>오늘은 즐거운 월요일</em>
+	</header>
+	<nav>
+		<strong>고르세용</strong><br>
+		<mark>먹고싶은거</mark>
+		<ul>
+			<li>메뉴1</li>
+			<li>메뉴2</li>
+			<li>메뉴3</li>
+			<li>메뉴4</li>
+		</ul>
+	</nav>
+	<section>
+		<article>
+			<h2>제목1</h2>
+			<p>내용1</p>
+		</article>
+		<article>
+			<h2>제목2</h2>
+			<p>내용2</p>
+		</article>
+	</section>
+	<footer>
+		<h3>홈페이지 정보(바닥 글)</h3>
+	</footer>
+</body>
+</html>
