@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>HTML 학습</title>
+</head>
+<body>
+<h1>자주 사용되는  HTML 태그 학습</h1>
+<hr>
+<h2>하이퍼 링크 태그</h2>
+<a href="http://www.w3.org/">W3 컨소시엄</a><br>
+<a href="http://www.w3schools.com/">Web Client 기술 학습 사이트</a><br>
+<a href="http://java.sun.com/"><img src="../images/java_duke.gif"></a><br>
+
+<!--
+gif gif, 용량적은데 화질 구림
+jpg 사진/용량 큼
+png 둘의 장점을 결합
+  -->
+  
+<h2>이미지 출력 태그</h2>
+<img src="../images/duke_luau.png" width="100"> <!-- height도 같이 조정됨. -->
+<img src="/edu/images/duke_luau.png" width="100" height="300">
+<img src="http://localhost:8000/edu/images/duke_luau.png">
+<!-- img 태그는 공간이 있으면 개행 안함. 공간 부족하면 개행.-->
+<!--다른 사이트에서 이미지 가지고 오려면 링크 주소 다써야함
+동일한 부분을 생략하고 나머지 부분만 입력하는 방법이 있음
+1. ../(프로젝트 내 하위폴더)/ 같은 서버에 있다는 전제하에 가능함
+2. /(프로젝트)/(프로젝트 내 하위폴더)/ 같은 서버에 있다는 전제하에 가능함
+3. 다른사이트 이미지의 경우 ----- http://~~ 포트번호까지 다 부여해줘야 함.
+4. ..은 부모 폴더로 간다는 의미....1번의 경우 htmlexam의 부모 폴더인 
+WebContent로 들어가서 그 하위폴더인 images로 들어가 파일을 찾는 다는 의미.
+
+3번째 줄처럼 다주는것을 절대 URL
+1,2번째 줄 처럼 포트번호 생략하는 것을 상대 url
+
+-->
+
+<h2>리스트태그</h2>
+<ul><!-- unordered list -->
+<li>Java Programming</li>
+<li>SQL</li>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+<li>Ajax</li>
+<li>Servlet</li>
+<li>JSP</li>
+<li>JDBC</li>
+</ul>
+
+<hr>
+
+<ol><!-- ordered list -->
+<li>Java Programming</li>
+<li>SQL</li>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+<li>Ajax</li>
+<li>Servlet</li>
+<li>JSP</li>
+<li>JDBC</li>
+</ol>
+
+<h2>테이블 태그</h2>
+<table border="1">
+<!-- 제목행을 포함하여 행은 5개 th 제목행임(볼드체 가운드정렬). 열의 개수만큼 td 태그 -->
+	<tr><th>언어이름</th><th>설명</th></tr>
+	<tr><td>Java</td><td>범용으로 활용되는 OOP 언어</td></tr>
+	<tr><td>JavaScript</td><td>동적인 웹 페이지 개발에 사용하는 OOP언어</td></tr>
+	<tr><td>CSS</td><td>HTML의 스타일을 조정하는 언어</td></tr>
+	<tr><td>R</td><td>통계 분석과 데이터 마이닝에 사용되는 언어</td></tr>
+</table>
+
+<h2>입력 폼 태그</h2>
+<form action="..." form=""><!-- action은 input의 submit type을 통해 url 전달 -->
+<input type="text" placeholder="이름을 입력하세요...." required name="gname"><!-- input 태그의 디폴트는 텍스트 -->
+<input type="number" placeholder="나이를 입력하세요...." required name="gage">
+<input type="email" placeholder="메일주소를 입력하세요...." required name="gemail">
+<input type="date" required name="gdate"><label>원하는 날짜를 입력하세요...</label>
+<br>
+성별을 선택하세요:<br>
+남성<input type = "radio" name = "gender" value ="male">
+여성<input type = "radio" name = "gender" value = "female">
+<br>
+좋아하는 음식을 선택하세요:<br>
+떡볶이<input type="checkbox" name="food" value ="떡볶이">
+오뎅<input type="checkbox" name="food" value ="오뎅">
+튀김<input type="checkbox" name="food" value ="튀김">
+순대<input type="checkbox" name="food" value ="순대">
+김밥<input type="checkbox" name="food" value ="김밥">
+<br>
+<!--  라디오,체크박스 옵션은 value 필수!! -->
+<input type="submit" value="전송">
+</form>
+
+
+</body>
+</html>
