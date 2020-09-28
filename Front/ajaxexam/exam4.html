@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <meta charset='utf-8'>
+     <title>New Web Project</title>
+     <script>
+     /* 매우 중요!! 실습 */
+     window.onload = function() {
+ 		var request = new XMLHttpRequest();
+ 		request.onload = function(event) { // 왠 onload ?? readyStateChange가 아니라?
+ 				//HTML5 AJAX에서는 XMLHTTPREQUEST 관련된 속성을 확장하였음.
+ 				//onload 이벤트핸들러에서는 끝나면 실행된다는 의미... 즉 readystate가 4일때만 실행이라 이프문으로 검사할 필요 없음..
+ 				//HTML5 로 구현할때는 레디스테이트 확인 x
+ 				//하지만 status는 항상 200인지 확인해야 됨..
+ 			if (request.status == 200) {
+ 				
+ 				var str = request.responseText;
+ 				var target = document.getElementById('output');
+ 				target.innerHTML = str; // html이 왓으니까 그냥 갖다가 붙이기만 한거..
+ 			}
+ 		};
+ 		request.open('GET', 'content/rss.jsp', true); //기상청 정보 끌어노는건데  ajax자체로는 못끌어오고 jsp가 끌어옴 rss real simple 
+ 		request.send();
+ 	};
+		
+     </script>
+    </head>
+    <body>
+        <h1 style="text-align : center">실시간 날씨 정보입니다.</h1>
+        <div id="output" style="width:350px; margin : 10px auto"></div>
+    </body>
+</html>

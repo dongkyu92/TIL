@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>오늘의 날씨~!~!</title>
+</head>
+<body>
+<h1 style="color:blue">오늘의 날씨 정보</h1>
+<hr>
+
+<h2 id="h2s" style="color:skyblue"></h2>
+<script>
+window.onload = function(){// ajax 엔진 객체
+	var xhr = new XMLHttpRequest(); // xhr 객체 생성
+	xhr.onload = function(event){
+		//onload 이벤트핸들러에서는 끝나면 실행된다는 의미... 즉 readystate가 4일때만 실행이라 이프문으로 검사할 필요 없음..
+		if(xhr.status==200){
+			var str = xhr.responseText; //제이슨 텍스트를 str로
+			//xml 제외하고 전부다 responseText..
+			//또 바이너리면 못씀..
+			//xml은 respnsexml씀..
+			
+			str = JSON.parse(str); // 자바스크립트 객체로 바꿈
+			console.log(str);
+			console.log(str.time);
+			console.log(str.temp);
+			
+			var h2dom = document.getElementById("h2s");
+			//h2dom.innerHTML="<tr><td>기준시간</td><td>"+str.time+"</td></tr>";
+			h2dom.innerHTML="기준시간 : "+str.time+"<br>"+"온도 : "+str.temp+"<br>"+
+			"<img width='200' src=http://localhost:8000/edu/"+str.img+">";
+		}
+	}
+	//open과 send는 항상 객체.onload 밖에 있어야 한다. 
+	xhr.open('GET','content/weather.jsp',true);
+	xhr.send();
+
+};
+</script>
+</body>
+</html>

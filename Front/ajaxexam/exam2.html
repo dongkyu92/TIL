@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>JavaScript로 구현하는 Ajax 프로그램-XML</h1>
+<hr>
+<script>
+window.onload = function() {
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+		if(request.readyState == 4) {
+			if(request.status == 200) {//성공적인 응답이 왔느냐
+				var xml = request.responseXML; // XML을 미리 돔객체를 생성한 도큐맨트 객체를 쓴다는 뜻. 
+				//서버로부터 응답된 XML형태의 돔객체 구성에서 제일 위에 있는 도큐멘트 객체를 받아오는 결과가 됨
+				////엔터가 처음에 있으므로 1부터 시작하고 +2씩..
+					//태그네임으로 각각찾아도되지만.. (getElementsByTagName).. 로드가 길어짐..
+				//alert(xml);
+				var rootE = xml.getElementsByTagName("testxml");
+				var output = "";
+				//alert(rootE[0].childNodes.length);
+				for(var i=1;i <rootE[0].childNodes.length; i+=2)
+					output += "<h2>"+
+					   rootE[0].childNodes[i].firstChild.nodeValue //h2태그로 편집해서 아웃풋에 붙음..
+					   +"</h2>";
+				alert(output);
+				document.body.innerHTML += output;	   
+			}
+		}		
+	}
+	request.open("GET", "content/testxml.xml", true);
+	request.send();
+}
+</script>
+</body>
+</html>
+
+
+
+
+

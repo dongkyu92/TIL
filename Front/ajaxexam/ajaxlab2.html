@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>주소와 위도경도 변환 서비스</h1>
+<hr>
+<button onclick="getLocation()">주소입력버튼</button>
+
+<br>
+<h2 id="h2s"></h2>
+<script>
+/* DOMContentLoaded 먼저발생하고
+load 발생 
+로드가 조금더 걸리고
+dom만 생성됐을때 자바스크립트 코드 완성하고 싶으면 dom.content.loaded ..*/
+	function getLocation(){
+		var gLocation = window.prompt();
+		var oAuthKey = "AIzaSyD8k2DWC_7yFHCrH6LDR3RfITsmWMEqC8c";
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function(event){
+			if(xhr.status==200){
+				var str = xhr.responseText;
+				str = JSON.parse(str);
+				var h2dom = document.getElementById("h2s");
+				console.log(str);
+				h2dom.innerHTML="변환된 위도와 경도 : "+str.results[0].geometry.location.lat+', '+str.results[0].geometry.location.lng;
+			};
+		} //서울시강남구테헤란로212
+		xhr.open('GET',"https://maps.googleapis.com/maps/api/geocode/json?address="+encodeURIComponent(gLocation)+"&key="+oAuthKey,true);
+		xhr.send();
+		//?와 함께 보내는게 GET 방식..
+	}
+</script>
+</body>
+</html>

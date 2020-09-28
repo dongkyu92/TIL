@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비 ajax 통신과 ajax 통신 비교</title>
+</head>
+<body>
+<h1>AJAX 통신 테스트</h1>
+<a href="content/sample.txt">하이퍼링크로요청</a>
+<br><br>
+<a href="content/sample.txt"><img src="../images/totoro.png" width="100"></a>
+<br><br>
+<!-- 여기까지 토토로 -->
+
+<button onclick="location.href='content/sample.txt';">버튼을클릭하여요청</button>
+<br><br>
+<!-- 전통적인 웹통신은 현재 페이지는 없어짐 -->
+
+
+<button onclick="requestAjax();">버튼을클릭하여요청(AJAX사용)</button>
+<output id="result"></output>
+
+<!-- 주기적으로 담벼락 댓글을 갱신해주는것을 폴링..지속적으로 AJAX 요청 -->
+<script>
+function requestAjax() {
+	var req = new XMLHttpRequest(); //XMLHttpRequest 객체 생성!!
+	console.log("여기1");
+	console.log(req.readyState);
+	var result = document.getElementById("result"); // 빈 돔객체 할당!!
+	req.onreadystatechange = function() {	
+		console.log("여기2");
+		console.log(req.readyState);//XMLHttpRequest 객체로 onreadystatechange 이벤트 핸들러 등록
+		//통신 상태가 변화한 시점에 호출하는 함수 즉, 레디 스테이트가 변경될 때마다 호출!
+		//alert("req.readyState : "+req.readyState);		
+		if(req.status == 200 && req.readyState == 4) // req.status ==200 서버응답 성공 (AJAX요청 성공)
+			result.innerHTML += req.responseText; 
+	}
+	console.log("여기3");
+	console.log(req.readyState);
+	req.open("GET", "content/sample.txt", true);	 // open 메서드 운송장 붙이는것. GET 방식으로 비동기방식(true) false 동기방식 아규먼트 생략시 디폴트 트루
+	console.log("여기5");
+	console.log(req.readyState);
+	req.send(); // 샌드메서드 호출되면  처음 0 오픈 호출 1 실제 요청이가면 2 서버로부터 응답시작 3 서버로부터 응답 끝나면 4
+	console.log("여기4");
+	console.log(req.readyState);
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
