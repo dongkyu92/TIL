@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<button>저장하기</button>
+	<button>삭제하기</button>
+	<button>읽어오기</button>
+
+	<canvas id="draw" width="400" height="300">
+</canvas>
+
+	<script>
+		var canvas = document.getElementById("draw");
+		var context = canvas.getContext("2d");
+		
+		context.beginPath();
+		context.arc(350, 150, 100, 0, Math.PI * 2, true);
+		context.fillStyle = "blue";
+		context.fill();
+		context.beginPath();
+		context.arc(150, 150, 100, 0, Math.PI * 2, true);
+		context.fillStyle = "yellow";
+		context.fill();
+		context.beginPath();
+		context.arc(20, 150, 100, 0, Math.PI * 2, true);
+		context.fillStyle = "red";
+		context.fill();
+
+		var savebtn = document.getElementsByTagName("button")[0];
+		var deletebtn = document.getElementsByTagName("button")[1];
+		var readbtn = document.getElementsByTagName("button")[2];
+
+		var savecv = function() {
+			console.log("저장완료");
+			localStorage.setItem("grim", canvas.toDataURL());
+		}
+		//toDataURL() 과의 차이는
+		savebtn.addEventListener("click", savecv);
+		// 캔버스 객체. todata url -> 저장 컨텍스트 아님
+
+		var deletecv = function() {
+			console.log("삭제완료");
+			
+		   context.clearRect(0,0,580,450); //지우는거
+			//localStorage.removeItem("grim");
+		//	localStroage.clear();
+		}// 겟그래픽스로 클리어 배트 얼마만큼 canvas객체 크기만큼..
+
+		deletebtn.addEventListener("click", deletecv);
+		
+		
+		var readcv = function() {
+			console.log("읽기완료");
+			var img = new Image(); //이미지 객체는 img태그와 거의 비슷함..  src속성에 그림 이름으로 보관된거 읽어옴
+		    img.src = localStorage.getItem("grim");
+		    img.onload = function() {
+		    	context.drawImage(img, 0, 0);        
+		    }
+		} // 로컬스토리지에서 겟아이템.. 꺼내왓을때는 이미지 객체를 생성하고 이미지객체의 src에 담고 로드를 통해 드로우 이미지
+		readbtn.addEventListener("click", readcv);
+
+		/* // 객체생성
+		 var guestObject = {
+		 objName : gName,
+		 objTele : gTele,
+		 objColor : color
+		 };
+		 //자바스크립트 객체는 스토리지에 보관 못함.. 반드시 문자열만 가능..
+		 //JSON.stringify(guestObject) 얘는 자바스크립트 객체를 문자열로 바꿔주는 애..
+		
+
+		 // 로컬저장소에 객체를 새로 추가
+		 localStorage.setItem(key, JSON.stringify(guestObject));
+
+		 guestArray.push(key); // 새로운 키를 배열에 추가
+		 localStorage.setItem("guestArray", JSON.stringify(guestArray));
+		 */
+	</script>
+</body>
+</html>

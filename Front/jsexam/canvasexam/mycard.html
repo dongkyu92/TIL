@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>!~메리크리스마스~!</title>
+<style>
+#dropbox {
+	float: left;
+	width: 500px;
+	height: 300px;
+	margin: 10px;
+}
+
+#picturesbox {
+	float: left;
+	width: 500px;
+	margin: 10px;
+	border: 1px solid #999999;
+}
+
+#picturesbox>img {
+	float: left;
+	padding: 5px;
+	width: 50px;
+	height: 50px;
+}
+</style>
+<!-- http://localhost:8000/
+edu/jsexam/dropexam/mycard.html -->
+</head>
+<body>
+	<h1 style="color: blue">HTML5로 크리스마스 카드 만들기</h1>
+	<button onclick="setCard()">저장하기</button>
+	<button>읽어오기</button>
+	<button onclick="delCard()">지우기</button>
+	<br>
+	<label for="bgcolor">배경 칼라 설정 : </label>
+	<input type="color" id="bgcolor" onchange="changeBgColor(this)">
+	<label for="bdcolor">테두리 칼라 설정 : </label>
+	<input type="color" id="bdcolor" onchange="changeBdColor(this)">
+	<br>
+	<label for="msgcolor">메시지 칼라 설정 : </label>
+	<input type="color" id="msgcolor">
+	<label for="inputmsg">입력 메시지 : </label>
+	<input type="text" id="inputmsg">
+	<br>
+
+	<section id="dropbox">
+		<canvas id="draw" width="500" height="500"></canvas>
+	</section>
+
+	<section id="picturesbox">
+		<img id="image1"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g1.png">
+		<img id="image2"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g2.png">
+		<img id="image3"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g3.png">
+		<img id="image4"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g4.png">
+		<img id="image5"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g5.png">
+		<img id="image6"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g6.png">
+		<img id="image7"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g7.png">
+		<img id="image8"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g8.png">
+		<img id="image9"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g9.png">
+		<img id="image10"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g10.png">
+		<img id="image11"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g11.png">
+		<img id="image12"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g12.png">
+		<img id="image13"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g13.png">
+		<img id="image14"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g14.png">
+		<img id="image15"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g15.png">
+		<img id="image16"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g16.png">
+		<img id="image17"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g17.png">
+		<img id="image18"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g18.png">
+		<img id="image19"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g19.png">
+		<img id="image20"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g20.png">
+		<img id="image21"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g21.png">
+		<img id="image22"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g22.png">
+		<img id="image23"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g23.png">
+		<img id="image24"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g24.png">
+		<img id="image25"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g25.png">
+		<img id="image26"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g26.png">
+		<img id="image27"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g27.png">
+		<img id="image28"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g28.png">
+		<img id="image29"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g29.png">
+		<img id="image30"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g30.png">
+		<img id="image31"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g31.png">
+		<img id="image32"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g32.png">
+		<img id="image33"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g33.png">
+		<img id="image34"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g34.png">
+		<img id="image35"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g35.png">
+		<img id="image36"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g36.png">
+		<img id="image37"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g37.png">
+		<img id="image38"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g38.png">
+		<img id="image39"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g39.png">
+		<img id="image40"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g40.png">
+		<img id="image41"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g41.png">
+		<img id="image42"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g42.png">
+		<img id="image43"
+			src="http://localhost:8000/edu/jsexam/canvasexam/kakao/g43.png">
+	</section>
+
+
+	<script>
+		 
+		var drop = document.getElementById('draw');
+		var canvas=drop.getContext('2d');
+		canvas.strokeRect(0, 0, 500, 360);
+
+		var savebtn = document.getElementsByTagName("button")[0]; //저장하기 버튼
+		var readbtn = document.getElementsByTagName("button")[1]; //읽어오기 버튼
+		var delebtn = document.getElementsByTagName("button")[2]; //삭제하기 버튼 
+		var msgIn = document.getElementById("inputmsg"); // 입력 메세지
+		var msgColor = document.getElementById("msgcolor");
+
+		function changeBgColor(me) {
+			canvas.fillStyle = me.value;
+			canvas.fillRect(0, 0, 500, 360);
+		}
+		function changeBdColor(me) {
+			canvas.strokeStyle = me.value;
+			canvas.strokeRect(0, 0, 500, 360);
+		}
+		function getMsgColor() {
+			return msgColor.value;
+		}
+
+		function getInputMsg() {
+			return msgIn.value;
+		}
+		function mouseClickOndrop(e) {
+			var text = document.getElementById("inputmsg").value;
+
+			var posx = e.pageX - drop.offsetLeft;
+			var posy = e.pageY - drop.offsetTop;
+
+			canvas.fillStyle = getMsgColor();
+			canvas.fillText(getInputMsg(), posx, posy);
+		}
+		drop.addEventListener("click", mouseClickOndrop);
+
+		
+		function setCard() {
+			localStorage.setItem("card", drop.toDataURL());
+		}
+		function getCard() {
+			var img = new Image();
+			img.src = localStorage.getItem("card");
+			img.onload = function() {
+				canvas.drawImage(img, 0, 0);
+			}
+		}
+		readbtn.addEventListener("click", getCard);
+		
+		function delCard() {
+			canvas.clearRect(0, 0, 500, 360);
+		}
+
+		function initiate() {
+			console.log("여기1");
+			var images = document.querySelectorAll('#picturesbox > img');
+			for (var i = 0; i < images.length; i++) {
+				images[i].addEventListener('dragstart', dragged, false);
+				images[i].addEventListener('dragend', ending, false);
+			}
+			drop.addEventListener('dragover', function(e) {
+				e.preventDefault();
+			}, false);
+			drop.addEventListener('drop', dropped, false);
+		}
+
+		function ending(e) {
+			console.log("여기2");
+			var elem = e.target;
+			//elem.style.visibility='hidden';
+			//elem.style.display='none';
+			//elem.parentNode.removeChild(elem);
+		}
+
+		function dragged(e) {
+			console.log("여기3");
+			var elem = e.target;
+			e.dataTransfer.setData('aa', elem.getAttribute('id'));
+			e.dataTransfer.setDragImage(e.target, 0, 0);
+			//선택된 이미지의 위치를 레프트 탑으로 하겠다..
+			//코를 클릭했을 때 포인터가 레프트 탑으로
+			//근데 이렇게 했을때 이미지가 드랍됐을 때 내려감.
+		}
+		function dropped(e) {
+			console.log("여기4");
+			e.preventDefault(); // 기본 이벤트 핸들러 반드시 해지..
+			var id = e.dataTransfer.getData('aa'); // 데이터 트랜스포트를 꺼내옴.. 드롭된 이미지의 아이디 값
+			var elem = document.getElementById(id); // 돔객체 꺼내어 elem에 담아 놓음.
+
+			var posx = e.pageX - drop.offsetLeft; // drop = canvas , 
+			var posy = e.pageY - drop.offsetTop; // 무조건 7070 에주면 무조건 7070우치에 그리게 됨.
+
+			canvas.drawImage(elem, posx, posy,70,70);//, 70, 70);
+			//drawIMAGE는 모서리부분을 기준으로함.. 
+			// 안빼주면 카드이미지가 조금조금씩 밀림.
+		}
+		window.addEventListener('load', initiate, false);
+	</script>
+</body>
+</html>

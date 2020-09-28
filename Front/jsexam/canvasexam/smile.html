@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<canvas id="draw" width="400" height="300">
+</canvas>
+
+<script>
+var area = document.getElementById("draw");
+var ctx =area.getContext("2d");
+
+ctx.beginPath();
+ctx.arc(350,150,100, 0,Math.PI*2,true);
+ctx.fillStyle ="blue";
+ctx.fill();
+ctx.beginPath();
+ctx.arc(150,150,100, 0,Math.PI*2,true);
+ctx.fillStyle ="yellow";
+ctx.fill();
+ctx.beginPath();
+ctx.arc(20,150,100, 0,Math.PI*2,true);
+ctx.fillStyle ="red";
+ctx.fill();
+</script>
+</body>
+</html>
