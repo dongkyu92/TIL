@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#btn{
+margin : 0 auto;
+text-align : center;
+}
+#bgc{
+background-image : linear-gradient(to top, green, yellow);
+border : 2px solid green;
+border-radius : 10px;
+}
+</style>
+</head>
+<body>
+<div id="bgc">
+<h1>펜션 예약 서비스</h1>
+<hr>
+<form method="POST" action="/sedu/jspexam/reservation.jsp" >
+
+	<label for="rname">예약자명 : </label>
+	<input id="rname" type="text" name="rname">
+	<br>
+	<label for="password">예약암호 : </label>
+	<input id="password" type="password" name="password">
+	<br>
+	
+	
+	룸선택 :
+	<label ><input type="radio" name="room" value="둘리">둘리</label>
+	<label ><input type="radio" name="room" value="희동">희동</label>
+	<label ><input type="radio" name="room" value="도우너">도우너</label>
+	<label ><input type="radio" name="room" value="또치">또치</label>
+	<br>
+	
+	추가요청사항 : 
+	<label><input type="checkbox" name="addrequest" value="바베큐">바베큐</label>
+	<label><input type="checkbox" name="addrequest" value="수영장">수영장</label>
+	<label><input type="checkbox" name="addrequest" value="낚시">낚시</label>
+	<label><input type="checkbox" name="addrequest" value="조식">조식</label>
+	<br>
+	
+	예약날짜 : 
+	<label><input type="date" placeholder="연도-월-일" name="date"></label>
+	<br>
+	<hr>
+	
+	<div id ="btn">
+	<input type="submit" value="보내기">
+	<input type="reset" value="다시작성하기">
+	</div>	
+</form>
+</div>
+</body>
+</html>

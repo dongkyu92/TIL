@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>곰탱이 리스트</title>
+<link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
+<style>
+h1{
+font-family: 'Gayathri', sans-serif;
+text-align : center;
+}
+img{
+	border : 2px solid black;
+	border-collapse : collapse;
+	box-shadow : 10px 15px 10px grey;
+	width : 260px;
+	height : 225px;
+	margin : 10px;
+}
+#special{
+
+}
+</style>
+</head>
+<body>
+<h1>LINE Friends Online Shop</h1>
+<br>
+<br>
+<h2 style="text-align:center">원하는 상품을 클릭해 주세요!! 마구마구^^<h2>
+<hr>
+<img src="../brown/브라운01.jpg" data-pid="p001" >
+<img src="../brown/브라운02.png" data-pid="p002">
+<img src="../brown/브라운03.png" data-pid="p003">
+<img src="../brown/브라운04.png" data-pid="p004">
+<img src="../brown/브라운05.jpg" data-pid="p005">
+<img src="../brown/브라운06.jpg" data-pid="p006">
+<img style="box-shadow : 10px 15px 10px red;" src="../brown/브라운07.gif" data-pid="p007">
+<img src="../brown/브라운08.png" data-pid="p008">
+<img src="../brown/브라운09.png" data-pid="p009">
+<img src="../brown/브라운10.png" data-pid="p010">
+<h1>곰탱</h1>
+</body>
+<script>//window.onload=function(){}
+var imgBtn = document.getElementsByTagName("img");
+var h1dom = document.getElementsByTagName("h1")[1];
+function requestID(){
+var xhr = new XMLHttpRequest();
+xhr.onload = function(event){
+
+	if(xhr.status==200){
+		
+		var str = xhr.responseText; // json 형식
+		console.log(str);
+		str = JSON.parse(str);
+	
+		console.log(h1dom);
+		h1dom.innerHTML=str.pid;
+	}
+
+}
+xhr.open('GET','../basket1?pid='+this.getAttribute("data-pid"),true);
+xhr.send();
+}
+for (var i = 0 ; i < imgBtn.length ; i++){
+	imgBtn[i].addEventListener("click",requestID);
+}
+</script>
+</html>

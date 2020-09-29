@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>서블릿을 요청하는 다양한 방법</h1>
+<hr>
+<a href="/sedu/getpost?name=듀크">하이퍼링크로 요청</a>
+<!-- 듀크가 전달! -->
+<hr>
+<form method="get" action="/sedu/getpost">
+<!-- 메서드 속성은 어떤방식으로 서버에게 요청할것이냐  액션은 누구를 요청할것이냐
+대문자로 받아오기때문에 나중에 비교할 때 참고!
+-->
+<input type="text" placeholder="이름을입력하세요" name="name" >
+<input type="submit"  value="GET방식요청">
+</form>
+<hr>
+<form method="post" action="/sedu/getpost">
+<input type="text" placeholder="이름을입력하세요" name="name" >
+<input type="submit"  value="POST방식요청">
+<!--
+GET : 쿼리 보임
+POST : 쿼리 안보임 -> 회원가입, 로그인
+서블릿은 두개 차이 거의 없지만, 옛날에 C로 짤때는 엄청어려웠음..
+서블릿 만든사람들은 많은 부분을 WAS가 대신하도록 만들었음..
+
+GET은 쿼리문자열의 제한이 없다..
+POST는 제한이 없다 .. 따라서 파일은 포스트 방식으로..동적할당을 해서...쿼리에서 온게 몇바이트인지 유동적으로 대처
+  -->
+</form>
+</body>
+</html>
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>곰탱이 리스트</title>
+<link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
+<style>
+h1{
+font-family: 'Gayathri', sans-serif;
+text-align : center;
+}
+img{
+	border : 2px solid black;
+	border-collapse : collapse;
+	box-shadow : 10px 15px 10px grey;
+	width : 260px;
+	height : 225px;
+	margin : 10px;
+}
+div{
+	text-align : center;
+	text-size : 10px;
+	border : 2px solid blue;
+	border-collapse : collapse;
+	background-color : skyblue;
+	margin : 0 auto;
+}
+h5{
+	list-style-type : square;
+	color : white;
+}
+#delete{
+width : 30px;
+height : 30px;
+}
+</style>
+</head>
+<body>
+<h1>LINE Friends Online Shop</h1>
+<br>
+<br>
+<h2 style="text-align:center">원하는 상품을 클릭해 주세요!! 마구마구^^<h2>
+<hr>
+<img src="../brown/브라운01.jpg" data-pid="p001" >
+<img src="../brown/브라운02.png" data-pid="p002">
+<img src="../brown/브라운03.png" data-pid="p003">
+<img src="../brown/브라운04.png" data-pid="p004">
+<img src="../brown/브라운05.jpg" data-pid="p005">
+<img src="../brown/브라운06.jpg" data-pid="p006">
+<img style="box-shadow : 10px 15px 10px red;" src="../brown/브라운07.gif" data-pid="p007">
+<img src="../brown/브라운08.png" data-pid="p008">
+<img src="../brown/브라운09.png" data-pid="p009">
+<img src="../brown/브라운10.png" data-pid="p010">
+
+<div><h5></h5><img id='delete' src='../brown/delete.png' data-pid='delete'></div>
+</body>
+<script>//window.onload=function(){}
+var imgBtn = document.getElementsByTagName("img");
+var h5dom = document.getElementsByTagName("h5")[0];
+var delBtn = document.getElementById("delete");
+function requestID(){
+var xhr = new XMLHttpRequest();
+xhr.onload = function(event){
+
+	if(xhr.status==200){
+		
+		var str = xhr.responseText; // json 형식
+
+		if(JSON.stringify(str).charAt(4)=='m'){
+			h5dom.innerHTML="";
+			str = JSON.parse(str);
+			h5dom.innerHTML=str.msg;
+		}
+		else{
+		str = JSON.parse(str);
+		h5dom.innerHTML="";
+		h5dom.innerHTML+="선택한 상품 리스트<br>-------------------<ul>"
+		
+		for(i in str){
+			if(str[i]>0)
+				h5dom.innerHTML+="<li>"+i+" 상품 "+str[i]+"개</li>";
+		}
+		
+		h5dom.innerHTML+="</ul>"	
+		}
+	}
+}
+xhr.open('GET','../basket2?pid='+this.getAttribute("data-pid"),true);
+xhr.send();
+}
+for (var i = 0 ; i < imgBtn.length ; i++){
+	imgBtn[i].addEventListener("click",requestID);
+}
+delBtn.addEventListener("click",requestID);
+
+</script>
+</html>
