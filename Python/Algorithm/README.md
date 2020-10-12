@@ -60,6 +60,14 @@ def bfs(graph, start_node):
      return visit
 ```
 
+- ###### queue.append와 queue.extend의 차이점
+
+  - ###### append는 요소 하나를 추가하는 것
+
+  - ###### extend는 리스트같은 배열을 추가하여 확장하는 것.
+
+
+
 ## DFS
 
 ```python
