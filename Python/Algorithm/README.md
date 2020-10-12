@@ -1,6 +1,6 @@
 # BFS(너비 우선 탐색, Breath First Search)
 
-<img src="/Users/dkmac/Library/Application Support/typora-user-images/스크린샷 2020-10-12 오전 10.44.38.png" alt="스크린샷 2020-10-12 오전 10.44.38" style="zoom:25%;" />
+<img width="660" alt="node" src="https://user-images.githubusercontent.com/64944016/95699854-81ebe600-0c80-11eb-8f26-cf74299f440b.png">
 
 1. BFS는 한 단계씩 나아가면서 해당 노드와 같은 레벨에 있는 노드들(즉, 형제 노드들)을 먼저 순회하는 방식이다. 이러한 방식을 너비 우선 탐색이라고 한다.
 2. A - B - C - H - D - I - J - M - E - G - K - F - L
