@@ -5,28 +5,34 @@ def solution(dirs):
     dic = defaultdict(int)
     x = 0
     y = 0
-    pos = [[x], [y]]
+    pos = [str(x), str(y)]
 
     for i in dirs:
         if i == 'U':
             y += 1
+            pos = [str(x), str(y)]
 
         elif i == 'L':
             x -= 1
+            pos = [str(x), str(y)]
 
         elif i == 'R':
             x += 1
+            pos = [str(x), str(y)]
 
         elif i == 'D':
             y -= 1
+            pos = [str(x), str(y)]
 
         else:
             pass
         
-        if i in dic:
-                pass
-            else:
-                dic[pos] = 1
+        if ' '.join(pos) in dic:
+            pass
+        else:
+            dic[' '.join(pos)] = 1
+            answer += 1
+        print(pos)
                 
     return answer
 
