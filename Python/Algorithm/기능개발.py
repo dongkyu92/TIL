@@ -15,9 +15,11 @@ def solution(progresses, speeds):
                 if zip_progress[0] == 100:
                     zip_progresses.popleft()
                     done += 1
-                else:
-                    zip_progresses[0][0] += zip_progresses[0][1]
+            for i, zip_progress in enumerate(copy.deepcopy(zip_progresses)):
+                zip_progresses[i][0] += zip_progresses[i][1]
+
             answer.append(done)
+
     return answer
 
 
