@@ -3,20 +3,22 @@ import heapq
 
 def solution(scoville, K):
     answer = 0
-    heap = []
-    for i in scoville:
-        heapq.heappush(heap, i)
 
-    flag = True
-    while flag:
-        if heap[0] > K:
-            flag = False
-        else:
-            temp1 = heapq.heappop(heap)
-            temp2 = heapq.heappop(heap)
-            temp = temp1 + (temp2 * 2)
-            heapq.heappush(heap, temp)
-            answer += 1
+    heapq.heapify(scoville)
+    # heapq.heapify(x)
+    # 리스트 x를 선형 시간으로 제자리에서 힙으로 변환합니다.
+    
+
+    while scoville[0] < K:
+        # 이 코드를 안넣으면 런타임 에러 4개 뜬다.
+        # while문 break 조건이 힙큐의 최소값이 K보다 작은 동안 계속 돈다.
+        # 즉, 원소가 하나일때도  K보다 작기만하면 while문으로 들어오는데
+        # 원소가 하나일때는 -1을 리턴해줘야 heapq가 재정렬을 안함.
+        if len(scoville) <= 1:
+            return -1
+        
+        heapq.heappush(scoville, heapq.heappop(scoville) + (heapq.heappop(scoville) * 2))
+        answer += 1
     return answer
 # 가장 작은 원소 찾기
 # heap[0] --> 최소값
