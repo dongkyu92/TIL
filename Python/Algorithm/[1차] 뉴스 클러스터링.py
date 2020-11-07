@@ -19,7 +19,6 @@ def solution(str1, str2):
         else:
             continue
     
-    
     if len(temp1) == 0 and len(temp2) == 0 :
         return 65536
 
