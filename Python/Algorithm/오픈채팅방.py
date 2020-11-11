@@ -1,8 +1,9 @@
 def solution(record):
     answer = []
     uid_dic = {}
-    id_dic = {}
-    message_dic = {}
+    id_dic = {} # id_dic이 필요한지 고민
+    # 메세지 dic이 아니라 result_dic으로 리스트 밸류를 담는 딕셔너리 만드는게 나을듯
+    message_dic = {} 
     for i, _ in enumerate(record):
         record[i] = record[i].split()
     
@@ -16,7 +17,7 @@ def solution(record):
                 # id_dic이 필요?
                 # answer에 넣어서 for 문으로 찾지말고 딕셔너리에 리스트를 넣어서
                 # 최악이 N2이 아니라 선형이 되도록 변경
-                
+
                 for index, ans in enumerate(answer):
                     if ans[0] == uid_dic[record[i][1]]: 
                         answer[index][0] = uid_dic[record[i][1]]
