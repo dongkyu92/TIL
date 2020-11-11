@@ -32,7 +32,6 @@ def solution(record):
         elif record[i][0] == 'Leave':
             message_dic[record[i][1]] = [id_dic[record[i][1]], '님이 나갔습니다.']
             answer.append( [uid_dic[record[i][1]], message_dic[record[i][1]]])
-
             
         elif record[i][0] == 'Change':
             for index, ans in enumerate(answer):
