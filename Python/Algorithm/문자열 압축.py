@@ -14,21 +14,17 @@ def solution(s):
         # splited_s_dq라는 리스트를 만들어서 리스트컨프리헨젼으로 n개 단위로 나눈 값으로 초기화
         temp = []
         splited_s_dq = deque(splited_s_dq)
-        for i, _ in range(1, len(splited_s_dq)):
+        
+        for i in range(1, len(splited_s_dq)):
             if splited_s_dq[i] == splited_s_dq[i - 1]:
-                if splited_s_dq[i - 1].isdigit():
-                    splited_s_dq.popleft()
-                    splited_s_dq.appendleft()
-                else:
-                    splited_s_dq.popleft()
-                    splited_s_dq.appendleft(int(2))
-
-                
+                answer += 1
+                # 이전 문자와 동일하다면.
+            else:
                 continue
-
+        print(answer)
     return answer
 
 print(solution("aabbaccc"))
-print(solution("ababcdcdababcdcd"))
-print(solution("abcabcabcabcdededededede"))
-print(solution("xababcdcdababcdcd"))
+# print(solution("ababcdcdababcdcd"))
+# print(solution("abcabcabcabcdededededede"))
+# print(solution("xababcdcdababcdcd"))
