@@ -10,6 +10,7 @@ def solution(n):
         if share > 3:
         
         else:
+            print(share)
 
     return answer
 
