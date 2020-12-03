@@ -13,7 +13,6 @@ def solution(s):
             if len(temp_before) == 1:
                 answer += 1
             else:
-                
                 if temp_before[m] == temp_before[l]:
                     answer += 1
                 else:
