@@ -7,7 +7,6 @@ def solution(s):
     for i in range(len(s) - 1):
         temp_before = s[:i + 1]
         temp_after = s[:i + 2]
-        
         m, l = 0, len(temp_before) - 1
         if len(temp_before) % 2 != 0:
             if len(temp_before) == 1:
