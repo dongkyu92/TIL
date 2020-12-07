@@ -1,25 +1,11 @@
-from collections import deque
-import copy
 def solution(progresses, speeds):
-    answer = []
     
-    zip_progresses = [ [x, y] for x, y in zip(progresses, speeds) ]
-    zip_progresses = deque(zip_progresses)
-    while True:
-        done = 0
-        if len(zip_progresses) == len(answer):
-            print('break')
-            break
-        else:
-            for i, zip_progress in enumerate(copy.deepcopy(zip_progresses)):
-                if zip_progress[0] == 100:
-                    zip_progresses.popleft()
-                    done += 1
-            for i, zip_progress in enumerate(copy.deepcopy(zip_progresses)):
-                zip_progresses[i][0] += zip_progresses[i][1]
+    if progresses[0] >= 100:
+        
 
-            answer.append(done)
-
+    for _ in range(len(progresses)):
+        
+        
     return answer
 
 
