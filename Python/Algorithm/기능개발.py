@@ -5,7 +5,6 @@ def solution(progresses, speeds):
 
     for _ in range(len(progresses)):
         
-        
     return answer
 
 
